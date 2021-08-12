@@ -1,20 +1,57 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-  <ul class = "navbar-nav">
-      <li class = "nav-item">
-          <a routerLink="Users" routerLinkActive="active" class="nav-link" >Users List</a>
-      </li>
-      <li class = "nav-item">
-          <a routerLink="Create-User" routerLinkActive="active" class="nav-link" >Add User</a>
-      </li>
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="utf-8">
+  <title>Gestion des reservations</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a *ngIf="authService.isAdmin()" class="navbar-brand" routerLink="/Bookings" routerLinkActive="active-link">Gestion Bookings</a>
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a *ngIf="authService.isloggedIn" class="nav-link" routerLink="/user/Book" >Book room</a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="authService.isloggedIn" class="nav-link" routerLink="/bookings"  routerLinkActive="active-link">View Calendar</a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="authService.isloggedIn" class="nav-link" routerLink="/user/BookingHistory" >Booking history</a>
+    </li>
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a *ngIf="authService.isAdmin()" class="nav-link dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown">
+        Users
+      </a>
+      <div class="dropdown-menu">
+        <a   class="dropdown-item" routerLink = "/Create-User" routerLinkActive="active-link">Add</a>
+        <a class="dropdown-item" routerLink="/Users" routerLinkActive="active-link">List</a>
+      </div>
+    </li>
+  </ul>
+  <ul class="navbar-nav ms-auto" >
+    <li> <a  class="nav-link">{{authService.loggedUser}}</a></li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown">
+        Connexion
+      </a>
+      <div class="dropdown-menu">
+        <a *ngIf="!authService.isloggedIn" class="dropdown-item" routerLink = "login">login</a>
+        <a *ngIf="authService.isloggedIn" class="dropdown-item"  (click) = "onLogout()">logout</a>
+        <a class="dropdown-item" href="#">Profile</a>
+      </div>
+    </li>
   </ul>
 </nav>
+<router-outlet></router-outlet>
+</body>
 
-<h1 class="text-center"> {{title}} </h1>
-<div class = "container">
-  <router-outlet></router-outlet>
-</div>
-<footer class = "footer">
-  <div class = "container">
-      <span>ADSERVIO internship</span>
-  </div>
-</footer>
+
+</html>
+
+
+
+
+
+

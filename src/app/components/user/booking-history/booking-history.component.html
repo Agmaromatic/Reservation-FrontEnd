@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr>  <th>Room</th> <th>Code</th> <th>Description</th> <th>Start Date</th> <th>End Date</th> <th>confirmed</th>  </tr>
+        </thead>
+        <tbody *ngFor="let Booking of Bookings">
+        <tr >
+          <td>{{Booking.room.name}}</td>
+          <td>{{Booking.code}}</td>
+          <td>{{Booking.description}}</td>
+          <td>{{Booking.startDate | date:'dd/MM/yyyy HH:mm'}}</td>
+          <td>{{Booking.endDate | date:'dd/MM/yyyy HH:mm' }}</td>
+          <td>{{Booking.confirmed}}</td>
+          <td><a *ngIf="authsrv.isloggedIn" (click)="cancelBooking(Booking)" class="btn btn-danger">Cancel</a></td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--<br> <br>-->
+<!--<h2>BookingList</h2>-->
+<!--<table class ="table table-striped table-dark">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>Description</th>-->
+<!--    <th>Code</th>-->
+<!--    <th>startDate</th>-->
+<!--    <th>endDate</th>-->
+<!--    <th>Confirmed</th>-->
+
+
+
+<!--  </tr>-->
+
+<!--  </thead>-->
+
+<!--  <tbody>-->
+
+<!--  <tr *ngFor ="let Booking of Bookings">-->
+<!--    <td> {{Booking.description}} </td>-->
+<!--    <td> {{Booking.code}} </td>-->
+<!--    <td> {{Booking.startDate}} </td>-->
+<!--    <td> {{Booking.endDate}} </td>-->
+<!--    <td> {{Booking.confirmed}} </td>-->
+
+
+<!--  </tr>-->
+
+<!--  </tbody>-->
+<!--</table>-->

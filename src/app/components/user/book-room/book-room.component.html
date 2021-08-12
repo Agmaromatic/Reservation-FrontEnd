@@ -1,0 +1,57 @@
+<div class="col-md-6 offset-md-3">
+  <h3> Book a room today! </h3>
+
+  <div>
+    <button  mat-raised-button color="primary" (click)="getRooms()">
+       List available rooms  </button>
+  </div>
+
+  <form >
+
+
+    <div class="form-group" >
+      <label> description</label>
+      <input  type="text" class ="form-control" id = "description"
+             [(ngModel)] = "form.description" name = "description">
+    </div>
+
+
+
+    <div class="form-group">
+      <label> Date Start</label>
+      <input [defaultValue]="date"  type="date" class ="form-control" id = "DateStart"
+             [(ngModel)] = "dateSt" name = "StartDate">
+
+      <input type="time"  class ="form-control" id = "timeStart"
+             [(ngModel)] = "timeSt" name = "StartTime" >
+    </div>
+
+
+    <div class="form-group">
+      <label> Date End</label>
+      <input type="date" class ="form-control" id = "dateEnd"
+             [(ngModel)] = "dateEd" name = "StartDate">
+
+      <input type="time" class ="form-control" id = "timeEnd"
+             [(ngModel)] = "timeEd" name = "StartTime">
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="roomName"> Room name</label>
+      <select class="form-control" id="roomName" name="roomName"
+              [(ngModel)] = "form.roomName">
+        <option *ngFor="let room of rooms" [value]="room.name" > {{room.name}}</option>
+      </select>
+
+    </div>
+
+    <button class = "btn btn-success" type ="submit" (click)="onSubmit()">Submit</button>
+
+    <div >{{ errormessage }}</div>
+
+    <div>{{ errorList }}</div>
+
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Username</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let User of Users">
+        <tr >
+          <td> {{User.username}} </td>
+          <td> {{User.firstName}} </td>
+          <td> {{User.lastName}} </td>
+          <td> {{User.email}} </td>
+
+
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

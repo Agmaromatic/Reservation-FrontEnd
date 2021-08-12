@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" class="app-header">
+  <span class="nav-tool-items">
+    <mat-card-footer *ngIf="isAuth" > Welcome back {{LoggedUser}} </mat-card-footer>
+    <button mat-button *ngIf="!isAuth"  routerLink="login" >Login</button>
+    <button mat-button mat-raised-button *ngIf="!isAuth"  routerLink="register" routerLinkActive="active">Register</button>
+    <button mat-button  *ngIf="isAuth" (click)="onlogout()" routerLink="logout" >Logout </button>
+
+  </span>
+</mat-toolbar>
