@@ -53,6 +53,7 @@ export class CalendarViewComponent implements OnInit {
     this.bookingService.getBookingsList().subscribe(Bookings =>{
       this.bookings = Bookings;
       for (let x of this.bookings) {
+        if(x.confirmed){
         this.events = [
           ...this.events,
           {
@@ -61,7 +62,7 @@ export class CalendarViewComponent implements OnInit {
             title:" Room name : "+x.room.name+ " , User : " +x.user.username+" ,  Description : "+x.description,
           }
         ]
-      }
+      }}
     });
 
   }
@@ -71,6 +72,7 @@ export class CalendarViewComponent implements OnInit {
     this.userService.getbookingHistoryList().subscribe(Bookings =>{
       this.bookings = Bookings;
       for (let x of this.bookings) {
+        if(x.confirmed){
         this.events = [
           ...this.events,
           {
@@ -80,7 +82,7 @@ export class CalendarViewComponent implements OnInit {
           }
         ]
       }
-    });
+    }});
 
   }
 

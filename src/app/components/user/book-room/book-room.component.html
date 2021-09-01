@@ -1,11 +1,6 @@
 <div class="col-md-6 offset-md-3">
   <h3> Book a room today! </h3>
 
-  <div>
-    <button  mat-raised-button color="primary" (click)="getRooms()">
-       List available rooms  </button>
-  </div>
-
   <form >
 
 
@@ -21,6 +16,7 @@
       <label> Date Start</label>
       <input [defaultValue]="date"  type="date" class ="form-control" id = "DateStart"
              [(ngModel)] = "dateSt" name = "StartDate">
+
 
       <input type="time"  class ="form-control" id = "timeStart"
              [(ngModel)] = "timeSt" name = "StartTime" >

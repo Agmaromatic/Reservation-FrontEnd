@@ -29,7 +29,7 @@ user:User =new User();
   }
 
   goToUserList(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/Users']);
   }
 
 

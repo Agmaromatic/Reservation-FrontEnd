@@ -35,8 +35,6 @@ columnsToDisplay = ['id','user','room','Unique BookingID','description','Start D
         case 'Unique BookingID' : return item.code;
         case 'Start Date' : return item.startDate;
         case 'End Date' : return item.endDate;
-
-
         // @ts-ignore
         default: return item[property];
 
@@ -47,6 +45,7 @@ columnsToDisplay = ['id','user','room','Unique BookingID','description','Start D
   ngOnInit(): void {
     this.getBookings();
   }
+
 
   setSortHeader() {
     this.sort.active = 'break';
@@ -59,7 +58,6 @@ columnsToDisplay = ['id','user','room','Unique BookingID','description','Start D
       sortHeader['_setAnimationTransitionState']({toState: 'active'});
     }
   }
-
 
   private getBookings(){
     this.bookingService.getBookingsList().subscribe(data=>{

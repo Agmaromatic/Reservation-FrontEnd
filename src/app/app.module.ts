@@ -13,7 +13,6 @@ import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {ForbiddenComponent} from "./components/forbidden/forbidden.component";
 import { CommonModule } from '@angular/common';
-import {LoginStatusComponent} from "./components/login-status/login-status.component";
 import {authInterceptorProviders} from "./helpers/auth.interceptor";
 import {UserService} from "./services/user.service";
 import { BookingListComponent } from './components/booking/booking-list/booking-list.component';
@@ -28,6 +27,15 @@ import { CalendarViewComponent } from './components/booking/calendar-view/calend
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
 import {MatTableExporterModule} from "mat-table-exporter";
+import { RoomListComponent } from './components/room/room-list/room-list.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { UpdateRoomComponent } from './components/room/update-room/update-room.component';
+import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+import { AdminDashboardComponent } from './components/user/admin-dashboard/admin-dashboard.component';
+import { AddRoomComponent } from './components/room/add-room/add-room.component';
+import { AddComponent } from './components/room/department/add/add.component';
+import { BookingByRoomComponent } from './components/room/booking-by-room/booking-by-room.component';
+import { BookingByUseridComponent } from './components/user/booking-by-userid/booking-by-userid.component';
 
 FullCalendarModule.registerPlugins([
   interactionPlugin,
@@ -45,12 +53,19 @@ FullCalendarModule.registerPlugins([
     LoginComponent,
     RegisterComponent,
     ForbiddenComponent,
-    LoginStatusComponent,
     BookingListComponent,
     UpdateBookingComponent,
     BookRoomComponent,
     BookingHistoryComponent,
-    CalendarViewComponent
+    CalendarViewComponent,
+    RoomListComponent,
+    UpdateRoomComponent,
+    UpdateUserComponent,
+    AdminDashboardComponent,
+    AddRoomComponent,
+    AddComponent,
+    BookingByRoomComponent,
+    BookingByUseridComponent
 
 
 
@@ -65,6 +80,7 @@ FullCalendarModule.registerPlugins([
     AngularMaterialModule,
     FlexLayoutModule,
     CommonModule,
+    NgbModule,
     MatTableExporterModule,
     FullCalendarModule,
     CalendarModule.forRoot({

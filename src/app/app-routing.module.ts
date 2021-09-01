@@ -9,6 +9,14 @@ import {UpdateBookingComponent} from "./components/booking/update-booking/update
 import {BookRoomComponent} from "./components/user/book-room/book-room.component";
 import {BookingHistoryComponent} from "./components/user/booking-history/booking-history.component";
 import {CalendarViewComponent} from "./components/booking/calendar-view/calendar-view.component";
+import {RoomListComponent} from "./components/room/room-list/room-list.component";
+import {UpdateRoomComponent} from "./components/room/update-room/update-room.component";
+import {UpdateUserComponent} from "./components/user/update-user/update-user.component";
+import {AdminDashboardComponent} from "./components/user/admin-dashboard/admin-dashboard.component";
+import {AddRoomComponent} from "./components/room/add-room/add-room.component";
+import {AddComponent} from "./components/room/department/add/add.component";
+import {BookingByRoomComponent} from "./components/room/booking-by-room/booking-by-room.component";
+import {BookingByUseridComponent} from "./components/user/booking-by-userid/booking-by-userid.component";
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -17,9 +25,22 @@ const routes: Routes = [
   {path:"Create-User",component:CreateUserComponent},
   {path:"Bookings",component:BookingListComponent},
   {path: "updateBooking/:id", component: UpdateBookingComponent},
+  {path: "updateUser/:id", component: UpdateUserComponent},
+  {path: "updateRoom/:id", component: UpdateRoomComponent},
   {path:"user/Book",component:BookRoomComponent},
   {path:"user/BookingHistory",component:BookingHistoryComponent},
-  {path:"bookings",component:CalendarViewComponent}
+  {path:"bookings",component:CalendarViewComponent},
+  {path:"rooms",component:RoomListComponent},
+  {path:"dashboard",component:AdminDashboardComponent},
+  {path:"Create-Room",component:AddRoomComponent},
+  {path:"Create-Department",component:AddComponent},
+  {path: "room/:id/bookings", component: BookingByRoomComponent},
+  {path: "user/:id/bookings", component: BookingByUseridComponent}
+
+
+
+
+
 
 
 

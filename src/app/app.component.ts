@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthService} from "./services/auth-service.service";
-import {stringify} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'app-root',

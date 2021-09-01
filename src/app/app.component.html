@@ -13,6 +13,8 @@
     <li class="nav-item">
       <a *ngIf="authService.isloggedIn" class="nav-link" routerLink="/user/Book" >Book room</a>
     </li>
+
+
     <li class="nav-item">
       <a *ngIf="authService.isloggedIn" class="nav-link" routerLink="/bookings"  routerLinkActive="active-link">View Calendar</a>
     </li>
@@ -25,26 +27,41 @@
         Users
       </a>
       <div class="dropdown-menu">
-        <a   class="dropdown-item" routerLink = "/Create-User" routerLinkActive="active-link">Add</a>
         <a class="dropdown-item" routerLink="/Users" routerLinkActive="active-link">List</a>
+        <a   class="dropdown-item" routerLink = "/Create-User" routerLinkActive="active-link">Add new</a>
+
+      </div>
+    </li>
+
+    <li class="nav-item dropdown">
+      <a *ngIf="authService.isAdmin()" class="nav-link dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown">
+        Rooms
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="/rooms" routerLinkActive="active-link">List</a>
+        <a   class="dropdown-item" routerLink = "/Create-Room" routerLinkActive="active-link">Add new</a>
+        <a class="dropdown-item" routerLink="/Create-Department" routerLinkActive="active-link">Add Department</a>
+
       </div>
     </li>
   </ul>
   <ul class="navbar-nav ms-auto" >
-    <li> <a  class="nav-link">{{authService.loggedUser}}</a></li>
+
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown">
-        Connexion
+        {{authService.loggedUser}}
       </a>
       <div class="dropdown-menu">
         <a *ngIf="!authService.isloggedIn" class="dropdown-item" routerLink = "login">login</a>
+        <a *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="dashboard">Dashboard</a>
         <a *ngIf="authService.isloggedIn" class="dropdown-item"  (click) = "onLogout()">logout</a>
-        <a class="dropdown-item" href="#">Profile</a>
+
       </div>
     </li>
   </ul>
 </nav>
 <router-outlet></router-outlet>
+
 </body>
 
 

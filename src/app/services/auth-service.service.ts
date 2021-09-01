@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  apiURL: string = 'http://localhost:8080/api';
+  apiURL: string = environment.API_URL;
 
   token:string;
   public loggedUser:string;

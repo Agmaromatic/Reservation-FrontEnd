@@ -29,14 +29,13 @@ errorList:string
   constructor(private userService:UserService, private roomService:RoomService,
               private router:Router) { }
   ngOnInit(): void {
+    this.getRooms();
   }
   onSubmit(){
     this.bookRoom();
-    this.goToBookingList()
   }
 
   bookRoom(){
-
     this.form.dateStart=this.dateSt+"T"+this.timeSt;
     this.form.dateEnd=this.dateEd+"T"+this.timeEd;
 
@@ -46,11 +45,14 @@ errorList:string
       error=> {console.log(error);
               console.log(error.status);
               this.errormessage=error.error;
-              if(error.status!=200)
-                alert("Not saved due to error ");
-            }
+              if(error.status!=200){
+                alert("Not saved due to error ");}
+              else
+              {
+                alert("Saved successfully ")
+                this.goToBookingList();
 
-
+            }}
 
     );
   }
@@ -62,12 +64,8 @@ errorList:string
   }
 
    getRooms(){
-
-     this.form.dateStart=this.dateSt+"T"+this.timeSt;
-     this.form.dateEnd=this.dateEd+"T"+this.timeEd;
-    this.roomService.getAvailableRoomsList(this.form.dateStart,this.form.dateEnd).subscribe(data=>{
+    this.roomService.getAvailableRoomsList().subscribe(data=>{
       this.rooms=data;
-
     });
   }
 
