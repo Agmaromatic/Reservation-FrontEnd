@@ -40,8 +40,6 @@ export class AuthService {
     const decodedToken = this.helper.decodeToken(this.token);
     this.roles = decodedToken.roles;
     this.isloggedIn = true;
-    console.log(this.roles);
-    console.log(this.isloggedIn);
     this.loggedUser = decodedToken.sub;
     console.log(this.loggedUser);
   }

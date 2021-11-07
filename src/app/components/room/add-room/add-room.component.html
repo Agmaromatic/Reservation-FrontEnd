@@ -1,0 +1,28 @@
+<div class="col-md-6 offset-md-3">
+  <h3> Create new room </h3>
+  <form (ngSubmit) = "onSubmit()">
+
+
+    <div class="form-group">
+      <label> Room name</label>
+      <input type="text" class ="form-control" id = "name"
+             [(ngModel)] = "form.name" name = "name">
+    </div>
+
+    <div class="form-group">
+      <label> Department</label>
+      <select class="form-control" id="room.department.name"
+              [(ngModel)] = "form.id" name="room.department.name">
+        <option *ngFor="let department of departments" [value]="department.id" > {{department.name}}</option>
+      </select>
+    </div>
+
+
+
+
+
+    <button class = "btn btn-success" type ="submit">Submit</button>
+
+
+  </form>
+</div>

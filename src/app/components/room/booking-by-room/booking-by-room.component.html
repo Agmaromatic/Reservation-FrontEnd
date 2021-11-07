@@ -1,0 +1,84 @@
+<div fxLayout fxLayoutAlign="center center">
+  <mat-form-field fxFlex="40%">
+    <input matInput type="text" (keyup)="doFilter($any($event.target).value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+<div fxLayout fxLayoutAlign="end center" >
+  <button  fxFlex="nogrow" mat-raised-button (click)="exporter.exportTable('csv',{fileName:'Bookings '})">Export to CSV</button> <br>
+</div>
+
+<table  mat-table matTableExporter  [dataSource]="dataSource" matSort matSortStart="desc" #exporter="matTableExporter" class="mat-elevation-z8">=
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
+    <td mat-cell *matCellDef="let booking"> {{booking.id}} </td>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="user" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> User </th>
+    <td mat-cell *matCellDef="let booking"> {{booking.user.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="room">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Room </th>
+    <td mat-cell *matCellDef="let booking"> {{booking.room.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Unique BookingID">
+    <th mat-header-cell *matHeaderCellDef  mat-sort-header> Code </th>
+    <td mat-cell *matCellDef="let booking"> {{booking.code}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let booking"> {{booking.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Start Date" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> StartDate </th>
+    <td mat-cell *matCellDef="let booking"> {{booking.startDate | date:'short' }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="End Date" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> endDate </th>
+    <td mat-cell *matCellDef="let booking"> {{booking.endDate | date : 'short'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="confirmed">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header  > confirmed </th>
+    <td mat-cell  *matCellDef="let booking" > {{booking.confirmed}} </td>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="update">
+    <th mat-header-cell *matHeaderCellDef> Update </th>
+    <td mat-cell *matCellDef="let booking">
+      <button mat-icon-button color="accent" [routerLink]="['/updateBooking',booking.id]">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+
+
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row [ngClass]="{'make-gold': myRowData.confirmed == false}" *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table>
+
+
+<mat-paginator [length]="100"
+               [pageSize]="10"
+               [pageSizeOptions]="[2, 4, 6,10,20,100]"
+               aria-label="Select page">
+</mat-paginator>
+
+
+
+
+
+
+
+
